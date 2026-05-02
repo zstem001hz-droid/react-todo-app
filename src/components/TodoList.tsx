@@ -1,4 +1,4 @@
-import { TodoProvider, useTodos } from "../context/TodoContext";
+import { useTodos } from "../context/TodoContext";
 import { useFilter } from "../context/FilterContext";
 import TodoItem from "./TodoItem";
 
@@ -16,12 +16,12 @@ function TodoList() {
   });
 
   if (filteredTodos.length === 0) {
-    return <p>Nothing to do that matches the current filter.</p>
+    return <p>Nothing to do that matches the current filter.</p>;
   }
 
   return (
     <ul>
-      {filteredTodos.map(todo => (
+      {filteredTodos.map((todo) => (
         <TodoItem
           key={todo.id}
           id={todo.id}

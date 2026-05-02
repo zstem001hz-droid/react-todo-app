@@ -1,18 +1,17 @@
-import { useState } from 'react'
+import { useState } from "react";
 
 // Controlled input component for adding new todo items.
 // Calls onAdd callback with trimmed text and clears the input on submission.
 function TodoInput({ onAdd }: { onAdd: (text: string) => void }) {
-
   // Tracks the current input field value
-  const [text, setText] = useState('')
+  const [text, setText] = useState("");
 
   // Prevents empty submissions and clears input after adding
   function handleSubmit(e: React.FormEvent) {
-    e.preventDefault()
-    if (text.trim() === '') return
-    onAdd(text.trim())
-    setText('')
+    e.preventDefault();
+    if (text.trim() === "") return;
+    onAdd(text.trim());
+    setText("");
   }
 
   return (
@@ -21,12 +20,12 @@ function TodoInput({ onAdd }: { onAdd: (text: string) => void }) {
       <input
         type="text"
         value={text}
-        onChange={e => setText(e.target.value)}
+        onChange={(e) => setText(e.target.value)}
         placeholder="Add a new todo..."
       />
       <button type="submit">Add</button>
     </form>
-  )
+  );
 }
 
-export default TodoInput
+export default TodoInput;

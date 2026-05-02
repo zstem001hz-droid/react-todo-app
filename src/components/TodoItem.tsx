@@ -1,23 +1,30 @@
-import { useState } from 'react'
-import { useTodos } from '../context/TodoContext'
+import { useState } from "react";
+import { useTodos } from "../context/TodoContext";
 
 // Renders a single todo item with toggle, edit, and delete controls.
 // Manages its own local edit state independently of global todo state.
-function TodoItem({ id, text, completed }: { id: string; text: string; completed: boolean }) {
-
+function TodoItem({
+  id,
+  text,
+  completed,
+}: {
+  id: string;
+  text: string;
+  completed: boolean;
+}) {
   // Tracks whether this todo is currently in edit mode
-  const [isEditing, setIsEditing] = useState(false)
+  const [isEditing, setIsEditing] = useState(false);
 
   // Tracks the current value of the edit input field
-  const [editText, setEditText] = useState(text)
+  const [editText, setEditText] = useState(text);
 
-  const { toggleTodo, deleteTodo, editTodo } = useTodos()
+  const { toggleTodo, deleteTodo, editTodo } = useTodos();
 
   // Saves the edited text and exits edit mode
   function handleSave() {
-    if (editText.trim() === '') return
-    editTodo(id, editText.trim())
-    setIsEditing(false)
+    if (editText.trim() === "") return;
+    editTodo(id, editText.trim());
+    setIsEditing(false);
   }
 
   return (
@@ -28,7 +35,7 @@ function TodoItem({ id, text, completed }: { id: string; text: string; completed
           <input
             type="text"
             value={editText}
-            onChange={e => setEditText(e.target.value)}
+            onChange={(e) => setEditText(e.target.value)}
           />
           <button onClick={handleSave}>Save</button>
           <button onClick={() => setIsEditing(false)}>Cancel</button>
@@ -41,7 +48,7 @@ function TodoItem({ id, text, completed }: { id: string; text: string; completed
             checked={completed}
             onChange={() => toggleTodo(id)}
           />
-          <span style={{ textDecoration: completed ? 'line-through' : 'none' }}>
+          <span style={{ textDecoration: completed ? "line-through" : "none" }}>
             {text}
           </span>
           <button onClick={() => setIsEditing(true)}>Edit</button>
@@ -49,7 +56,7 @@ function TodoItem({ id, text, completed }: { id: string; text: string; completed
         </>
       )}
     </li>
-  )
+  );
 }
 
-export default TodoItem
+export default TodoItem;
