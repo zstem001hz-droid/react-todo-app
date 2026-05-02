@@ -35,8 +35,7 @@ export function useTodos() {
 // Manages todo list state and persists it to localStorage.
 // Exposes all todo actions to the component tree via context.
 export function TodoProvider({ children }: { children: React.ReactNode }) {
-  
-    // Lazy initialization reads persisted todos from localStorage on first render
+  // Lazy initialization reads persisted todos from localStorage on first render
   const [todos, setTodos] = useState<Todo[]>(() => {
     const saved = localStorage.getItem("todos");
     return saved ? JSON.parse(saved) : [];
