@@ -88,5 +88,14 @@ npm run dev
 - [Vite Documentation](https://vitejs.dev/guide/)
 - [TypeScript Documentation](https://www.typescriptlang.org/docs/)
 
-
 ## Reflections
+
+This lab demonstrated how the Context API solves prop drilling by making state available to any component in the tree without passing props through intermediate components.
+
+The most important concept was understanding the three-part Context pattern: createContext, Provider, and useContext. Each context followed the same structure — create the context, wrap the app with the Provider, consume with a custom hook.
+
+Managing three independent contexts (TodoContext, FilterContext, ThemeContext) showed how separating concerns into focused contexts prevents unnecessary re-renders. A change to the theme does not affect components only consuming TodoContext, and vice versa.
+
+The persistence layer using localStorage with lazy initialization connected directly back to Lab 1 patterns — the same useEffect and useState techniques applied in a more complex, multi-context environment.
+
+The most challenging aspect was understanding why TodoApp needed to be a separate inner component inside App — hooks can only be called inside the Provider they consume, so the consuming component must be a child of the Provider, not the same component rendering it.
