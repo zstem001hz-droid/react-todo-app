@@ -6,6 +6,7 @@ import TodoInput from "./components/TodoInput";
 import TodoList from "./components/TodoList";
 import FilterButtons from "./components/FilterButtons";
 import ThemeToggleButton from "./components/ThemeToggleButton";
+import ClearCompleted from './components/ClearCompleted'
 
 // Inner component has access to both TodoContext and FilterContext
 function TodoApp() {
@@ -27,6 +28,7 @@ function TodoApp() {
       <TodoInput onAdd={addTodo} />
       <FilterButtons />
       <TodoList />
+      <ClearCompleted />
     </div>
   );
 }

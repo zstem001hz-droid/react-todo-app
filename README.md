@@ -12,7 +12,7 @@ A full-featured Todo application built with React and TypeScript, demonstrating 
 - ✅ `TodoItem` — individual todo with toggle, edit, and delete
 - ✅ `FilterButtons` — UI controls for visibility filter
 - ✅ `ThemeToggleButton` — toggles light/dark theme
-- [ ] `clearCompleted` — removes all completed todos
+- ✅ `clearCompleted` — removes all completed todos
 - ✅ Persistence — todos and theme saved to localStorage
 
 ## Tech Stack
@@ -29,6 +29,7 @@ src/
 │   ├── FilterContext.tsx        ← visibility filter state
 │   └── ThemeContext.tsx         ← theme state and toggle
 ├── components/
+    ├── ClearCompleted
 │   ├── TodoInput.tsx            ← input for adding todos
 │   ├── TodoList.tsx             ← renders filtered todo list
 │   ├── TodoItem.tsx             ← single todo item
